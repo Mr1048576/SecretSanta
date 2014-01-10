@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="Secret, Santa, Christmas, Holidays, Gift, Gifts, Presents">
+        <meta name="description" content="This app will allow you to play Secret Santa with a group of your friends during the Holidays.">
+        <title>Secret Santa</title>
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    </head>
+    <body>
+
+        <uses-permission android:name="android.permission.READ_CONTACTS" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
+        <link rel="stylesheet" href="css/SecretSantaAppColorScheme.css">
+        <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+        
+        <script type="text/javascript" src="js/cordova.js"></script>
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery.mobile-1.4.0.min.js"></script>
+        <!--<script src="js/SecretSantaApp.js"></script>-->
+        <script src="js/shake.js"></script>
+
+        <div data-role="page" id="home">            <!--HOME-->
+
+            <div data-role="header">
+                <h1>Secret Santa</h1>
+                <a href="javascript:history.back()" data-icon="arrow-l">Back</a>
+                <a href="#" data-icon="gear" data-iconpos="notext"></a>
+            </div><!-- /header -->
+
+            <div data-role="content">   
+                <ul data-role="listview">
+                    <li><a href="#mySuggestions">My Suggestions</a></li>
+                    <li><a href="#groups">Your Groups</a></li>
+                    <li><a href="#creation">Create New Group</a></li>
+                </ul>
+            </div><!-- /content -->
+
+            <div data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#home" data-icon="home" data-iconpos="notext" class="ui-disabled">Home</a></li>
+                        <li><a href="#groups" data-icon="bars">Groups</a></li>
+                    </ul>
+            </div>
+
+
+        </div><!-- Page -->
+
+        <div data-role="page" id="creation">        <!--GROUP CREATION-->
+
+            <div data-role="header">
+                <h1>Create Group</h1>
+                <a href="javascript:history.back()" data-icon="arrow-l">Back</a>
+                <a href="#" data-icon="gear" data-iconpos="notext"></a>
+            </div><!-- /header -->
+
+            <div data-role="content">
+                <div id="contactList">
+                                        <!--Contact List comes here-->
+                </div>
+            </div>
+
+            <div data-role="content">   
+                <button id="getContactsBtn">Get Contacts</button>
+            </div><!-- /content -->
+
+            <div data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#home" data-icon="home" data-iconpos="notext">Home</a></li>
+                        <li><a href="#groups" data-icon="bars">Groups</a></li>
+                    </ul>
+            </div>
+
+
+        </div><!-- Page -->
+
+        <div data-role="page" id="groups">          <!--ALL GROUPS-->
+
+            <div data-role="header">
+                <h1>Current Groups</h1>
+                <a href="javascript:history.back()" data-icon="arrow-l">Back</a>
+                <a href="#" data-icon="gear" data-iconpos="notext"></a>
+            </div><!-- /header -->
+
+            <div data-role="content">   
+                <ul data-role="listview">
+                    <li><a href="#group01">The Simpsons</a></li>
+                    <li><a href="#group02">The Starks</a></li>
+                </ul>
+            </div><!-- /content -->
+
+            <div data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#home" data-icon="home" data-iconpos="notext">Home</a></li>
+                        <li><a href="#groups" data-icon="bars" class="ui-disabled">Groups</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div><!-- Page -->
+
+        <div data-role="page" id="group01">         <!--ONE GROUP * 2-->
+            <div data-role="header">
+                <h1>The Simpsons</h1>
+                <a href="javascript:history.back()" data-icon="arrow-l">Back</a>
+                <a href="#" data-icon="gear" data-iconpos="notext"></a>
+            </div><!-- /header -->
+
+            <div data-role="content">
+                <ul data-role="listview">
+                    <li><a href="#member01_1">Lisa</a></li>
+                    <li><a href="#member01_1">Homer</a></li>
+                    <li><a href="#member01_1">Bart</a></li>
+                    <li><a href="#member01_1">Marge</a></li>
+                    <li><a href="#member01_1">Maggie</a></li>
+                </ul>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#home" data-icon="home" data-iconpos="notext">Home</a></li>
+                        <li><a href="#groups" data-icon="bars">Groups</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div data-role="page" id="group02">
+            <div data-role="header">
+                <h1>The Starks</h1>
+                <a href="javascript:history.back()" data-icon="arrow-l">Back</a>
+                <a href="#" data-icon="gear" data-iconpos="notext"></a>
+            </div><!-- /header -->
+
+            <div data-role="content">
+                <ul data-role="listview">
+                    <li><a href="#member01_1">Jon</a></li>
+                    <li><a href="#member01_1">Eddard</a></li>
+                    <li><a href="#member01_1">Arya</a></li>
+                    <li><a href="#member01_1">Robb</a></li>
+                    <li><a href="#member01_1">Sansa</a></li>
+                </ul>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#home" data-icon="home" data-iconpos="notext">Home</a></li>
+                        <li><a href="#groups" data-icon="bars">Groups</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div data-role="page" id="member01_1">
+            <div data-role="header">
+                <h1>Dummy Example</h1>
+                <a href="javascript:history.back()" data-icon="arrow-l">Back</a>
+                <a href="#" data-icon="gear" data-iconpos="notext"></a>
+            </div><!-- /header -->
+
+            <div data-role="content">
+                <h3 data-role="header">Suggestions:</h3>
+                <ul data-role="listview">
+                    <li>Camera</li>
+                    <li>Subscription to CarMagazine</li>
+                </ul>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#home" data-icon="home" data-iconpos="notext">Home</a></li>
+                        <li><a href="#groups" data-icon="bars">Groups</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div data-role="page" id="mySuggestions">           <!--MY SUGGESTIONS-->
+            <div data-role="header">
+                <h1>My Suggestions:</h1>
+                <a href="javascript:history.back()" data-icon="arrow-l">Back</a>
+                <a href="#" data-icon="gear" data-iconpos="notext"></a>
+            </div><!-- header -->
+
+            <div data-role="collapsible">
+                <h3>Socks</h3>
+                <div data-role="controlgroup" data-type="horizontal">
+                <button data-inline="true" data-icon="check" data-theme="e">Check</button><button data-inline="true" data-icon="delete">Delete</button></div>
+            </div>
+            <div data-role="collapsible">
+                <h3>Subscription to Playboy</h3>
+                <div data-role="controlgroup" data-type="horizontal">
+                <button data-inline="true" data-icon="check" data-theme="e">Check</button><button data-inline="true" data-icon="delete">Delete</button></div>
+            </div>
+            <div data-role="collapsible">
+                <h3>Swatch</h3>
+                <div data-role="controlgroup" data-type="horizontal">
+                <button data-inline="true" data-icon="check" data-theme="e">Check</button><button data-inline="true" data-icon="delete">Delete</button></div>
+            </div>
+                <input type="text" name="newSuggestions" id="newSuggestionInput" placeholder="Add new" />
+                <button id="addSuggestionBtn">Add suggestion</button>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul>
+                        <li><a href="#home" data-icon="home" data-iconpos="notext">Home</a></li>
+                        <li><a href="#groups" data-icon="bars">Groups</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    <script>
+
+
+    //document.addEventListener("deviceready", onDeviceReady, false);
+
+    console.log("outsideDeviceReady");
+
+    //function onDeviceReady(){ //NOT ACTIVATING!!!
+        
+        console.log("insideDeviceReady");
+
+        var allContacts = new Array();
+
+        $("#getContactsBtn").on("click", function(){
+            console.log("getContactsBtn clicked");
+            /*var options = new ContactFindOptions();
+            options.filter = "";
+            options.multiple = true;*/
+            var fields = ["displayName", "name", "emails"];
+            navigator.contacts.find(fields, contactRetrievalSuccess, contactRetrievalFailure);
+        });
+        
+    //}
+
+    function shakeEventDidOccur () {
+        alert("howdy");
+        var ownEmail = "";
+        var ownName = "";
+        var emailReg = /^([w-.]+@([w-]+.)+[w-]{2,4})?$/;
+        if(!emailReg.test($("#emailFromInput")) && $("#emailFromInput").val() != ""){
+            ownEmail = $("#emailFromInput").val();
+        }
+        if($("#nameFromInput").val() != ""){
+            ownName = $("#nameFromInput");
+        }
+        contactListMails.push(ownEmail);
+        contactListNames.push(ownName);
+        //arrangeSecretSantas(contactListMails, contactListNames, ownEmail);
+        //put your own code here etc.
+        if (confirm("Undo?")) {
+            
+        }
+    }
+
+    var newContactListNames = Array();
+
+    function arrangeSecretSantas(contactListMails, contactListNames, ownEmail){
+        var maxCount = contactListNames.length - 1;
+        var checkArray = new Array();
+
+        for(var i = 0; i < contactListNames.length; i++){
+            var r = Math.floor(Math.random(0, maxCount));
+            if(($.inArray(r, checkArray) == -1 || checkArray.length == 0) && i != r){
+                newContactListNames[r] = contactListNames[i];
+                checkArray.push(r);
+            }else{
+                i--;
+            }
+        }
+
+        var mailSubject = "Secret Santa assigned.";
+
+        for(var i = 0; i < contactListNames.length; i++){
+
+            var mailMmessage = "You (" + contactListNames[i] + ") are the Secret Santa for: " + newContactListNames[i] + ".";
+            var emailToMail = contactListMails[i];
+            
+            $.post("sendEmail.php",
+            {
+                emailTo: emailToMail, emailFrom: ownEmail, subject: mailSubject, message: mailMmessage
+            },
+                function(data){
+                    //alert("Secret Santas have been assigned, check your mail");
+                });
+
+        }
+    }
+
+    function contactRetrievalSuccess(contacts){
+
+        $("#contactList").append("<ul data-role=\"listview\" data-filter=\"true\">");
+        
+
+        for(var i = 0; i < contacts.length; i++){
+
+            console.log("Display Name = " + contacts[i].displayName);
+            $("#contactList").append("<li id=\"contact" + i + "\" class=\"listContact\">" + contacts[i].displayName + "</li>");
+        
+        }
+        
+        $("#contactList").append("</ul>");
+    
+    }
+
+    function contactRetrievalFailure(contactError){
+        alert("Sorry, something went wrong accessing your contact list.");
+    }
+
+    $(".listContact").on("click", function(){
+
+    });
+
+    $("#newSuggestionInput").keypress(function(e){
+        var p = e.which;
+        if(p==13){
+            addSuggestion($("#newSuggestionInput").val());
+        }
+    });
+
+    $("#addSuggestionBtn").click(addSuggestion($("#newSuggestionInput").val()));
+
+    function addSuggestion(newSuggestion){
+        var collDiv = $("<div/>");
+        var header = $("<h3/>");
+        var btnCheck = $("<button/>").attr({
+            "data-inline": "true",
+            "data-icon": "check"
+        });
+        var btnDelete = $("<button/>").attr({
+            "data-inline": "true",
+            "data-icon": "delete"
+        });
+        var ctrlDiv = $("<div/>").attr({
+            "data-role": "controlgroup",
+            "data-type": "horizontal"
+        });
+        header.text(newSuggestion);
+        btnCheck.text("Check");
+        btnDelete.text("Delete");
+        collDiv.append(header);
+        collDiv.append(ctrlDiv);
+    }   
+
+    </script>
+
+    </body>
+</html>
